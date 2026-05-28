@@ -4,6 +4,7 @@ from colorama import Fore, Style
 from core.crawler import WebCrawler
 from core.injector import Injector
 from core.detector import XSSDetector
+from core.scanner import URLScanner
 
 
 def load_payloads():
@@ -28,60 +29,142 @@ def scan_xss(url):
 
     injector = Injector(session)
 
-    forms = crawler.get_forms(url)
+    # -----------------------------
+    # GET ALL LINKS
+    # -----------------------------
+
+    links = crawler.get_links(url)
+
+    all_urls = [url] + links
 
     print(
-        f"\n[+] Found {len(forms)} forms\n"
+        f"\n[+] Found {len(links)} links\n"
     )
+
+    for link in links:
+
+        print(f"[LINK] {link}")
 
     payloads = load_payloads()
 
     vulnerabilities = []
 
-    for form in forms:
+    # -----------------------------
+    # SCAN EACH PAGE
+    # -----------------------------
 
-        form_details = (
-            crawler.get_form_details(form)
+    for current_url in all_urls:
+
+        print(
+            f"\n[SCANNING] {current_url}"
+        )
+
+        forms = crawler.get_forms(
+            current_url
+        )
+
+        print(
+            f"[+] Found {len(forms)} forms"
+        )
+
+        # -----------------------------
+        # URL PARAMETER SCANNING
+        # -----------------------------
+
+        print(
+            "[+] Testing URL parameters...\n"
         )
 
         for payload in payloads:
 
-            response = injector.submit_form(
-                form_details,
-                url,
+            result = URLScanner.scan_url(
+                session,
+                current_url,
                 payload
             )
 
-            if XSSDetector.is_vulnerable(
-                response,
-                payload
-            ):
+            if result:
 
-                print(
-                    f"{Fore.RED}"
-                    "[VULNERABLE]"
-                    f"{Style.RESET_ALL}"
-                )
+                response, tested_url = result
 
-                print(
-                    f"URL: "
-                    f"{form_details['action']}"
-                )
-
-                print(
-                    f"Payload: {payload}\n"
-                )
-
-                vulnerabilities.append({
-
-                    "url":
-                    form_details["action"],
-
-                    "payload":
+                if XSSDetector.is_vulnerable(
+                    response,
                     payload
-                })
+                ):
 
-                break
+                    print(
+                        f"{Fore.RED}"
+                        "[URL VULNERABLE]"
+                        f"{Style.RESET_ALL}"
+                    )
+
+                    print(
+                        f"URL: {tested_url}"
+                    )
+
+                    print(
+                        f"Payload: {payload}\n"
+                    )
+
+                    vulnerabilities.append({
+
+                        "url":
+                        tested_url,
+
+                        "payload":
+                        payload
+                    })
+
+                    break
+
+        # -----------------------------
+        # FORM SCANNING
+        # -----------------------------
+
+        for form in forms:
+
+            form_details = (
+                crawler.get_form_details(form)
+            )
+
+            for payload in payloads:
+
+                response = injector.submit_form(
+                    form_details,
+                    current_url,
+                    payload
+                )
+
+                if XSSDetector.is_vulnerable(
+                    response,
+                    payload
+                ):
+
+                    print(
+                        f"{Fore.RED}"
+                        "[FORM VULNERABLE]"
+                        f"{Style.RESET_ALL}"
+                    )
+
+                    print(
+                        f"URL: "
+                        f"{form_details['action']}"
+                    )
+
+                    print(
+                        f"Payload: {payload}\n"
+                    )
+
+                    vulnerabilities.append({
+
+                        "url":
+                        form_details["action"],
+
+                        "payload":
+                        payload
+                    })
+
+                    break
 
     return vulnerabilities
 
