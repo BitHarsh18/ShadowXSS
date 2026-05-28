@@ -5,11 +5,7 @@ class XSSDetector:
         response,
         payload
     ):
+        if not payload:
+            return False
 
-        content = response.text
-
-        if payload in content:
-
-            return True
-
-        return False
+        return payload in response.text

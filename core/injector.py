@@ -1,11 +1,13 @@
+import requests
+
 from urllib.parse import urljoin
 
 
 class Injector:
 
-    def __init__(self, session):
+    def __init__(self):
 
-        self.session = session
+        pass
 
     def submit_form(
         self,
@@ -19,38 +21,30 @@ class Injector:
             form_details["action"]
         )
 
-        inputs = form_details["inputs"]
-
         data = {}
 
-        for input_field in inputs:
+        for input_tag in form_details["inputs"]:
 
-            input_name = input_field.get(
+            input_name = input_tag.get(
                 "name"
             )
 
-            input_type = input_field.get(
-                "type"
-            )
-
-            #<input type="text" name="search">
-
             if input_name:
-
-                if input_type == "submit":
-
-                    continue
 
                 data[input_name] = payload
 
         if form_details["method"] == "post":
 
-            return self.session.post(
+            response = requests.post(
                 target_url,
                 data=data
             )
 
-        return self.session.get(
-            target_url,
-            params=data
-        )
+        else:
+
+            response = requests.get(
+                target_url,
+                params=data
+            )
+
+        return response
