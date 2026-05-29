@@ -1,38 +1,12 @@
-from core.crawler import WebCrawler
-
-from core.injector import Injector
-
-from core.detector import XSSDetector
-
-
-crawler = WebCrawler()
-
-injector = Injector()
-
+from core.url_scanner import URLScanner
 
 payload = "<script>alert(1)</script>"
 
-
-forms = crawler.get_forms(
-    "http://127.0.0.1:5000/search"
+response = URLScanner.scan_url(
+    "http://127.0.0.1:5000/profile?name=test",
+    payload
 )
 
+print(response.status_code)
 
-for form in forms:
-
-    form_details = crawler.get_form_details(
-        form
-    )
-
-    response = injector.submit_form(
-        form_details,
-        "http://127.0.0.1:5000/search",
-        payload
-    )
-
-    is_vulnerable = XSSDetector.is_vulnerable(
-        response,
-        payload
-    )
-
-    print(is_vulnerable)
+print(payload in response.text)

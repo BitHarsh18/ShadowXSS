@@ -1,6 +1,7 @@
 from core.crawler import WebCrawler
 from core.injector import Injector
 from core.detector import XSSDetector
+from core.url_scanner import URLScanner
 
 
 crawler = WebCrawler()
@@ -39,6 +40,25 @@ for current_url in all_urls:
     print(
         f"\n[SCANNING] {current_url}"
     )
+
+    # URL PARAMETER SCAN
+    if "?" in current_url:
+
+        response = URLScanner.scan_url(
+            current_url,
+            payload
+        )
+
+        is_vulnerable = XSSDetector.is_vulnerable(
+            response,
+            payload
+        )
+
+        if is_vulnerable:
+
+            print(
+                f"[URL VULNERABLE] {current_url}"
+            )
 
     forms = crawler.get_forms(
         current_url

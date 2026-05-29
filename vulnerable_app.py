@@ -1,311 +1,176 @@
-from flask import (
-    Flask,
-    request,
-    redirect,
-    session
-)
+from flask import Flask, request, render_template_string
 
 app = Flask(__name__)
 
-app.secret_key = "shadowxss"
+BASE_HTML = """
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XSS Training Lab</title>
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-# -----------------------------
-# Fake Database
-# -----------------------------
+    <style>
+        body{
+            background:#0d1117;
+            color:white;
+        }
 
-comments_db = []
+        .card{
+            background:#161b22;
+            border:1px solid #30363d;
+        }
 
+        a{
+            text-decoration:none;
+        }
+    </style>
+</head>
 
-# -----------------------------
-# Home Page
-# -----------------------------
+<body>
+
+<div class="container mt-5">
+
+    {{ content|safe }}
+
+</div>
+
+</body>
+</html>
+"""
+
 
 @app.route("/")
 def home():
 
-    username = session.get(
-        "username",
-        "Guest"
-    )
+    content = """
+    <h1 class="mb-4">XSS Training Lab</h1>
 
-    return f"""
-    <html>
+    <div class="row">
 
-    <head>
+        <div class="col-md-6">
 
-        <title>ShadowXSS Lab</title>
+            <div class="card p-3 mb-3">
 
-        <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+                <h4>Reflected XSS Pages</h4>
 
-    </head>
+                <ul>
+                    <li><a href="/search">Search</a></li>
+                    <li><a href="/login">Login</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/profile?name=test">Profile</a></li>
+                </ul>
 
-    <body class="bg-dark text-light">
-
-    <div class="container mt-5">
-
-        <h1 class="mb-4">
-            ShadowXSS Vulnerable Lab
-        </h1>
-
-        <p>
-            Logged in as:
-            <b>{username}</b>
-        </p>
-
-        <div class="list-group">
-
-            <a href="/search"
-            class="list-group-item list-group-item-action">
-                Search Page
-            </a>
-
-            <a href="/profile"
-            class="list-group-item list-group-item-action">
-                Profile Page
-            </a>
-
-            <a href="/comments"
-            class="list-group-item list-group-item-action">
-                Comments Page
-            </a>
-
-            <a href="/contact"
-            class="list-group-item list-group-item-action">
-                Contact Page
-            </a>
-
-            <a href="/login"
-            class="list-group-item list-group-item-action">
-                Login Page
-            </a>
-
-            <a href="/dom"
-            class="list-group-item list-group-item-action">
-                DOM XSS Page
-            </a>
+            </div>
 
         </div>
 
     </div>
-
-    </body>
-    </html>
     """
 
+    return render_template_string(
+        BASE_HTML,
+        content=content
+    )
 
-# -----------------------------
-# Login Page
-# -----------------------------
-
-@app.route("/login", methods=["GET", "POST"])
-def login():
-
-    if request.method == "POST":
-
-        username = request.form.get(
-            "username"
-        )
-
-        session["username"] = username
-
-        return redirect("/")
-
-    return """
-    <html>
-
-    <head>
-
-    <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-
-    </head>
-
-    <body class="bg-dark text-light">
-
-    <div class="container mt-5">
-
-        <h1>Login</h1>
-
-        <form method="POST">
-
-            <input
-            class="form-control mb-3"
-            name="username"
-            placeholder="Username">
-
-            <button
-            class="btn btn-primary">
-                Login
-            </button>
-
-        </form>
-
-    </div>
-
-    </body>
-    </html>
-    """
-
-
-# -----------------------------
-# Reflected XSS
-# -----------------------------
 
 @app.route("/search")
 def search():
 
-    q = request.args.get("q", "")
+    q = request.args.get(
+        "q",
+        ""
+    )
 
-    return f"""
-    <html>
+    content = f"""
+    <div class="card p-4">
 
-    <head>
-
-    <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-
-    </head>
-
-    <body class="bg-dark text-light">
-
-    <div class="container mt-5">
-
-        <h1>Search</h1>
+        <h2>Search Page</h2>
 
         <form>
 
             <input
-            class="form-control mb-3"
-            name="q"
-            placeholder="Search">
+                name="q"
+                class="form-control mb-3"
+                placeholder="Search..."
+            >
 
             <button
-            class="btn btn-success">
+                class="btn btn-success"
+            >
                 Search
-            </button>
-
-        </form>
-
-        <div class="alert alert-info mt-3">
-
-            Results for:
-            {q}
-
-        </div>
-
-    </div>
-
-    </body>
-    </html>
-    """
-
-
-# -----------------------------
-# Profile Page
-# -----------------------------
-
-@app.route("/profile")
-def profile():
-
-    name = request.args.get(
-        "name",
-        ""
-    )
-
-    return f"""
-    <html>
-
-    <body class="bg-dark text-light">
-
-    <div class="container mt-5">
-
-        <h1>Profile</h1>
-
-        <h3>
-            Welcome {name}
-        </h3>
-
-    </div>
-
-    </body>
-    </html>
-    """
-
-
-# -----------------------------
-# Stored XSS
-# -----------------------------
-
-@app.route("/comments", methods=["GET", "POST"])
-def comments():
-
-    if request.method == "POST":
-
-        comment = request.form.get(
-            "comment"
-        )
-
-        comments_db.append(comment)
-
-    rendered_comments = ""
-
-    for comment in comments_db:
-
-        rendered_comments += f"""
-        <div class='alert alert-warning'>
-            {comment}
-        </div>
-        """
-
-    return f"""
-    <html>
-
-    <head>
-
-    <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-
-    </head>
-
-    <body class="bg-dark text-light">
-
-    <div class="container mt-5">
-
-        <h1>Comments</h1>
-
-        <form method="POST">
-
-            <textarea
-            class="form-control mb-3"
-            name="comment"></textarea>
-
-            <button
-            class="btn btn-danger">
-                Post Comment
             </button>
 
         </form>
 
         <hr>
 
-        {rendered_comments}
+        Results for:
+        {q}
+
+        <br><br>
+
+        <a href="/">Home</a>
 
     </div>
-
-    </body>
-    </html>
     """
 
+    return render_template_string(
+        BASE_HTML,
+        content=content
+    )
 
-# -----------------------------
-# Contact Form
-# -----------------------------
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+
+    username = ""
+
+    if request.method == "POST":
+
+        username = request.form.get(
+            "username",
+            ""
+        )
+
+    content = f"""
+    <div class="card p-4">
+
+        <h2>Login</h2>
+
+        <form method="POST">
+
+            <input
+                name="username"
+                class="form-control mb-3"
+                placeholder="Username"
+            >
+
+            <button
+                class="btn btn-primary"
+            >
+                Login
+            </button>
+
+        </form>
+
+        <hr>
+
+        Welcome:
+        {username}
+
+        <br><br>
+
+        <a href="/">Home</a>
+
+    </div>
+    """
+
+    return render_template_string(
+        BASE_HTML,
+        content=content
+    )
+
 
 @app.route("/contact", methods=["GET", "POST"])
 def contact():
@@ -315,77 +180,80 @@ def contact():
     if request.method == "POST":
 
         message = request.form.get(
-            "message"
+            "message",
+            ""
         )
 
-    return f"""
-    <html>
+    content = f"""
+    <div class="card p-4">
 
-    <body class="bg-dark text-light">
-
-    <div class="container mt-5">
-
-        <h1>Contact</h1>
+        <h2>Contact Us</h2>
 
         <form method="POST">
 
-            <input
-            class="form-control mb-3"
-            name="message">
+            <textarea
+                name="message"
+                class="form-control mb-3"
+            ></textarea>
 
             <button
-            class="btn btn-primary">
+                class="btn btn-warning"
+            >
                 Send
             </button>
 
         </form>
 
-        <div class="mt-3">
-            {message}
-        </div>
+        <hr>
+
+        Message:
+        {message}
+
+        <br><br>
+
+        <a href="/">Home</a>
 
     </div>
-
-    </body>
-    </html>
     """
 
+    return render_template_string(
+        BASE_HTML,
+        content=content
+    )
 
-# -----------------------------
-# DOM XSS
-# -----------------------------
 
-@app.route("/dom")
-def dom():
+@app.route("/profile")
+def profile():
 
-    return """
-    <html>
+    name = request.args.get(
+        "name",
+        ""
+    )
 
-    <body class="bg-dark text-light">
+    content = f"""
+    <div class="card p-4">
 
-    <div class="container mt-5">
+        <h2>User Profile</h2>
 
-        <h1>DOM XSS</h1>
+        Welcome:
+        {name}
 
-        <script>
+        <br><br>
 
-        const hash = location.hash.substring(1);
-
-        document.write(hash);
-
-        </script>
+        <a href="/">Home</a>
 
     </div>
-
-    </body>
-    </html>
     """
 
+    return render_template_string(
+        BASE_HTML,
+        content=content
+    )
 
-# -----------------------------
-# Run App
-# -----------------------------
 
-app.run(
-    debug=True
-)
+if __name__ == "__main__":
+
+    app.run(
+        debug=True,
+        port=5000
+    )
