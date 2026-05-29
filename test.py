@@ -1,12 +1,11 @@
-from core.url_scanner import URLScanner
+from core.reporter import Reporter
 
-payload = "<script>alert(1)</script>"
+reporter = Reporter()
 
-response = URLScanner.scan_url(
-    "http://127.0.0.1:5000/profile?name=test",
-    payload
+reporter.add_finding(
+    "http://127.0.0.1:5000/search",
+    "<script>alert(1)</script>",
+    "GET"
 )
 
-print(response.status_code)
-
-print(payload in response.text)
+reporter.save_json()

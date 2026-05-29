@@ -70,7 +70,7 @@ class WebCrawler:
         except Exception as e:
             print(f"[ERROR] {e}")
 
-        return links
+        return links 
                 
             
 

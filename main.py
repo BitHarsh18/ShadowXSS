@@ -2,14 +2,19 @@ from core.crawler import WebCrawler
 from core.injector import Injector
 from core.detector import XSSDetector
 from core.url_scanner import URLScanner
+from core.payloads import Payloads
+from core.reporter import Reporter
+from core.html_reporter import HTMLReporter
+
+
+payloads = Payloads.PAYLOADS
 
 
 crawler = WebCrawler()
 
 injector = Injector()
 
-
-payload = "<script>alert(1)</script>"
+reporter = Reporter()
 
 
 target_url = input(
@@ -32,7 +37,9 @@ print(
 
 for link in links:
 
-    print(f"[LINK] {link}")
+    print(
+        f"[LINK] {link}"
+    )
 
 
 for current_url in all_urls:
@@ -44,21 +51,34 @@ for current_url in all_urls:
     # URL PARAMETER SCAN
     if "?" in current_url:
 
-        response = URLScanner.scan_url(
-            current_url,
-            payload
-        )
+        for payload in payloads:
 
-        is_vulnerable = XSSDetector.is_vulnerable(
-            response,
-            payload
-        )
-
-        if is_vulnerable:
-
-            print(
-                f"[URL VULNERABLE] {current_url}"
+            response = URLScanner.scan_url(
+                current_url,
+                payload
             )
+
+            is_vulnerable = XSSDetector.is_vulnerable(
+                response,
+                payload
+            )
+
+            if is_vulnerable:
+
+                reporter.add_finding(
+                    current_url,
+                    payload,
+                    "URL_PARAMETER",
+                    "Reflected XSS"
+                )
+
+                print(
+                    f"[URL VULNERABLE] {current_url}"
+                )
+
+                print(
+                    f"Payload : {payload}"
+                )
 
     forms = crawler.get_forms(
         current_url
@@ -74,29 +94,47 @@ for current_url in all_urls:
             form
         )
 
-        response = injector.submit_form(
-            form_details,
-            current_url,
-            payload
-        )
+        for payload in payloads:
 
-        is_vulnerable = XSSDetector.is_vulnerable(
-            response,
-            payload
-        )
-
-        if is_vulnerable:
-
-            print("[VULNERABLE]")
-
-            print(
-                f"Payload : {payload}"
+            response = injector.submit_form(
+                form_details,
+                current_url,
+                payload
             )
 
-            print(
-                f"Method : {form_details['method']}"
+            is_vulnerable = XSSDetector.is_vulnerable(
+                response,
+                payload
             )
 
-            print(
-                f"Inputs : {form_details['inputs']}\n"
-            )
+            if is_vulnerable:
+
+                reporter.add_finding(
+                    current_url,
+                    payload,
+                    form_details["method"],
+                    "Reflected XSS"
+                )
+
+                print(
+                    "[VULNERABLE]"
+                )
+
+                print(
+                    f"Payload : {payload}"
+                )
+
+                print(
+                    f"Method : {form_details['method']}"
+                )
+
+                print(
+                    f"Inputs : {form_details['inputs']}\n"
+                )
+
+
+reporter.save_json()
+
+HTMLReporter.generate(
+    reporter.findings
+)

