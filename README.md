@@ -27,24 +27,14 @@ HTML Vulnerability Report
 
 <img width="968" height="646" alt="image" src="https://github.com/user-attachments/assets/ee0e1fc3-0c77-4f1d-b04e-65e1a545cd51" />
 <img width="958" height="721" alt="image" src="https://github.com/user-attachments/assets/04f73ff9-e7f7-444d-bf44-b352efa30f46" />
+<img width="947" height="863" alt="image" src="https://github.com/user-attachments/assets/11ea6227-54da-4e59-9ed0-280569d3f5df" />
+<img width="932" height="858" alt="image" src="https://github.com/user-attachments/assets/32e84228-f3ee-497d-8611-4aace95e514e" />
+<img width="933" height="844" alt="image" src="https://github.com/user-attachments/assets/f63d1ff6-47bb-4ea2-b2dc-000cf6991f96" />
 
 
 
 
 
-
-
-Take a screenshot of:
-
-report.html
-
-showing:
-
-Dark Theme
-Vulnerability Table
-Payloads
-XSS Types
-Severity Information
 
 ## Features
 
