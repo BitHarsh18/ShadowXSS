@@ -446,12 +446,6 @@ python3 shadowxss.py \
 
 ---
 
-## Resume Description
-
-Developed a modular Python-based XSS vulnerability scanner featuring automated web crawling, form discovery, URL parameter testing, multi-payload injection, reflected XSS detection, and JSON/HTML vulnerability reporting.
-
----
-
 ## Disclaimer
 
 This project was developed for educational purposes and authorized security testing environments only.
