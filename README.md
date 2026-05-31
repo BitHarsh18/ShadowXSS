@@ -32,6 +32,14 @@ HTML Vulnerability Report
 <img width="933" height="844" alt="image" src="https://github.com/user-attachments/assets/f63d1ff6-47bb-4ea2-b2dc-000cf6991f96" />
 
 
+### CLI Command execution 
+<img width="432" height="946" alt="image" src="https://github.com/user-attachments/assets/af320d5b-95f2-4045-9470-ed1548d41fb0" />
+
+
+### JSON report Generation
+<img width="555" height="840" alt="image" src="https://github.com/user-attachments/assets/75d9a86e-670d-43d8-b7c8-f6f10873d1c7" />
+
+
 
 
 
