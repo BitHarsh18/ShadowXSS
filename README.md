@@ -23,6 +23,28 @@ The goal of this project was to:
 * Develop a modular and extensible security tool
 
 ---
+HTML Vulnerability Report
+
+<img width="968" height="646" alt="image" src="https://github.com/user-attachments/assets/ee0e1fc3-0c77-4f1d-b04e-65e1a545cd51" />
+<img width="958" height="721" alt="image" src="https://github.com/user-attachments/assets/04f73ff9-e7f7-444d-bf44-b352efa30f46" />
+
+
+
+
+
+
+
+Take a screenshot of:
+
+report.html
+
+showing:
+
+Dark Theme
+Vulnerability Table
+Payloads
+XSS Types
+Severity Information
 
 ## Features
 
