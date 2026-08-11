@@ -58,7 +58,9 @@ def home():
                     <li><a href="/search">Search</a></li>
                     <li><a href="/login">Login</a></li>
                     <li><a href="/contact">Contact</a></li>
-                    <li><a href="/profile?name=test">Profile</a></li>
+                    <li><a href="/profile?name=test&city=Delhi">Profile</a></li>
+<li><a href="/admin?user=admin&role=root&token=12345">Admin Panel</a></li>
+                    <li><a href="/settings?theme=dark">Settings</a></li>
                 </ul>
 
             </div>
@@ -175,9 +177,21 @@ def login():
 @app.route("/contact", methods=["GET", "POST"])
 def contact():
 
+    email = ""
+    subject = ""
     message = ""
 
     if request.method == "POST":
+
+        email = request.form.get(
+            "email",
+            ""
+        )
+
+        subject = request.form.get(
+            "subject",
+            ""
+        )
 
         message = request.form.get(
             "message",
@@ -190,6 +204,18 @@ def contact():
         <h2>Contact Us</h2>
 
         <form method="POST">
+
+            <input
+                name="email"
+                class="form-control mb-3"
+                placeholder="Email"
+            >
+
+            <input
+                name="subject"
+                class="form-control mb-3"
+                placeholder="Subject"
+            >
 
             <textarea
                 name="message"
@@ -205,6 +231,16 @@ def contact():
         </form>
 
         <hr>
+
+        Email:
+        {email}
+
+        <br>
+
+        Subject:
+        {subject}
+
+        <br>
 
         Message:
         {message}
@@ -222,21 +258,181 @@ def contact():
     )
 
 
-@app.route("/profile")
+@app.route("/profile", methods=["GET", "POST"])
 def profile():
 
-    name = request.args.get(
-        "name",
-        ""
-    )
+    name = request.args.get("name", "")
+    city = request.args.get("city", "")
+    bio = ""
+
+    if request.method == "POST":
+
+        bio = request.form.get(
+            "bio",
+            ""
+        )
 
     content = f"""
     <div class="card p-4">
 
         <h2>User Profile</h2>
 
-        Welcome:
+        <form method="POST">
+
+            <textarea
+                name="bio"
+                class="form-control mb-3"
+                placeholder="Enter bio"
+            ></textarea>
+
+            <button
+                class="btn btn-info"
+            >
+                Update Profile
+            </button>
+
+        </form>
+
+        <hr>
+
+        Name:
         {name}
+
+        <br>
+
+        City:
+        {city}
+
+        <br>
+
+        Bio:
+        {bio}
+
+        <br><br>
+
+        <a href="/">Home</a>
+
+    </div>
+    """
+
+    return render_template_string(
+        BASE_HTML,
+        content=content
+    )
+
+
+@app.route("/admin", methods=["GET", "POST"])
+def admin():
+
+    user = request.args.get(
+        "user",
+        ""
+    )
+
+    role = request.args.get(
+        "role",
+        ""
+    )
+
+    token = request.args.get(
+        "token",
+        ""
+    )
+
+    notes = ""
+    logs = ""
+
+    if request.method == "POST":
+
+        notes = request.form.get(
+            "notes",
+            ""
+        )
+
+        logs = request.form.get(
+            "logs",
+            ""
+        )
+
+    content = f"""
+    <div class="card p-4">
+
+        <h2>Admin Dashboard</h2>
+
+        <form method="POST">
+
+            <input
+                name="notes"
+                class="form-control mb-3"
+                placeholder="Notes"
+            >
+
+            <input
+                name="logs"
+                class="form-control mb-3"
+                placeholder="Logs"
+            >
+
+            <button
+                class="btn btn-danger"
+            >
+                Save
+            </button>
+
+        </form>
+
+        <hr>
+
+        User:
+        {user}
+
+        <br>
+
+        Role:
+        {role}
+
+        <br>
+
+        Token:
+        {token}
+
+        <br>
+
+        Notes:
+        {notes}
+
+        <br>
+
+        Logs:
+        {logs}
+
+        <br><br>
+
+        <a href="/">Home</a>
+
+    </div>
+    """
+
+    return render_template_string(
+        BASE_HTML,
+        content=content
+    )
+
+@app.route("/settings")
+def settings():
+
+    theme = request.args.get(
+        "theme",
+        ""
+    )
+
+    content = f"""
+    <div class="card p-4">
+
+        <h2>Settings</h2>
+
+        Current Theme:
+        {theme}
 
         <br><br>
 

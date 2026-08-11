@@ -5,9 +5,12 @@ from urllib.parse import urljoin
 
 class Injector:
 
-    def __init__(self):
+    def __init__(
+        self,
+        session
+    ):
 
-        pass
+        self.session = session
 
     def submit_form(
         self,
@@ -35,14 +38,14 @@ class Injector:
 
         if form_details["method"] == "post":
 
-            response = requests.post(
+            response = self.session.post(
                 target_url,
                 data=data
             )
 
         else:
 
-            response = requests.get(
+            response = self.session.get(
                 target_url,
                 params=data
             )

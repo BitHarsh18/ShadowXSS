@@ -11,14 +11,16 @@ class Reporter:
         url,
         payload,
         method,
-        xss_type
+        xss_type,
+        severity
     ):
 
         finding = {
             "url": url,
             "payload": payload,
             "method": method,
-            "type":xss_type
+            "type": xss_type,
+            "severity": severity
         }
 
         self.findings.append(
