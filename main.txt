@@ -1,0 +1,96 @@
+
+[+] Found 1 links
+
+[LINK] http://127.0.0.1:5000/
+
+[SCANNING] http://127.0.0.1:5000/search?q=test
+[+] Found 1 URL parameters
+[PARAMETER] q
+[CONTEXT] HTML text
+Context Probe : True
+Context Reason : Marker is located directly inside HTML text
+Payloads Selected : 5
+Payload Categories : ['HTML_PAYLOADS', 'HTML_ELEMENT_PAYLOADS', 'SVG_PAYLOADS']
+[POTENTIAL XSS] http://127.0.0.1:5000/search?q=test
+Parameter : q
+Payload : <script>alert(1)</script>
+Severity : MEDIUM
+Context : HTML text
+Context Probe : True
+Confidence : medium
+Reason : Payload is reflected inside an HTML <script> tag but could not be associated with a specific attribute.
+[POTENTIAL XSS] http://127.0.0.1:5000/search?q=test
+Parameter : q
+Payload : <script>alert('XSS')</script>
+Severity : MEDIUM
+Context : HTML text
+Context Probe : True
+Confidence : medium
+Reason : Payload is reflected inside an HTML <script> tag but could not be associated with a specific attribute.
+[POTENTIAL XSS] http://127.0.0.1:5000/search?q=test
+Parameter : q
+Payload : <script>confirm(1)</script>
+Severity : MEDIUM
+Context : HTML text
+Context Probe : True
+Confidence : medium
+Reason : Payload is reflected inside an HTML <script> tag but could not be associated with a specific attribute.
+[POTENTIAL XSS] http://127.0.0.1:5000/search?q=test
+Parameter : q
+Payload : <script>prompt(1)</script>
+Severity : MEDIUM
+Context : HTML text
+Context Probe : True
+Confidence : medium
+Reason : Payload is reflected inside an HTML <script> tag but could not be associated with a specific attribute.
+[POTENTIAL XSS] http://127.0.0.1:5000/search?q=test
+Parameter : q
+Payload : <script>console.log('XSS')</script>
+Severity : MEDIUM
+Context : HTML text
+Context Probe : True
+Confidence : medium
+Reason : Payload is reflected inside an HTML <script> tag but could not be associated with a specific attribute.
+[+] Found 1 forms
+[+] Form inputs: 1
+[INPUT] q
+[CONTEXT] not reflected
+Context Probe : False
+Context Reason : Marker was not found in response
+Payloads Selected : 5
+Payload Categories : ['HTML_PAYLOADS', 'HTML_ELEMENT_PAYLOADS', 'EVENT_PAYLOADS', 'ATTRIBUTE_PAYLOADS', 'JAVASCRIPT_PAYLOADS', 'SVG_PAYLOADS']
+
+[SCANNING] http://127.0.0.1:5000/
+[+] Found 0 forms
+
+========================================
+        BROWSER VERIFICATION
+========================================
+[+] Potential unique findings: 1
+
+[VERIFYING 1/1]
+URL : http://127.0.0.1:5000/search?q=test
+Parameter : q
+Payload : <script>alert(1)</script>
+[CONFIRMED XSS]
+JavaScript execution was detected by the browser.
+Alert : 1
+
+========================================
+             SCAN SUMMARY
+========================================
+Links Found        : 1
+Forms Found        : 1
+Injection Points   : 2
+Payload Library    : 60
+Payload Limit (--p): 5
+Payload Tests      : 10
+Payload Reflections: 5
+Unique Findings    : 1
+Confirmed XSS      : 1
+Not Confirmed      : 0
+Not Tested         : 0
+========================================
+
+[+] Report saved to report.json
+[+] Styled HTML Report Saved: report.html

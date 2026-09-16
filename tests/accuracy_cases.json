@@ -1,0 +1,56 @@
+[
+    {
+        "id": "CTX-001",
+        "name": "HTML text context",
+        "url": "http://127.0.0.1:5000/context-test?html_text=test",
+        "parameter": "html_text",
+        "ground_truth": "VULNERABLE",
+        "expected_confirmation": true,
+        "category": "html_text"
+    },
+    {
+        "id": "CTX-002",
+        "name": "HTML attribute context",
+        "url": "http://127.0.0.1:5000/context-test?attribute=test",
+        "parameter": "attribute",
+        "ground_truth": "VULNERABLE",
+        "expected_confirmation": false,
+        "category": "html_attribute"
+    },
+    {
+        "id": "CTX-003",
+        "name": "Event handler context",
+        "url": "http://127.0.0.1:5000/context-test?event=test",
+        "parameter": "event",
+        "ground_truth": "VULNERABLE",
+        "expected_confirmation": false,
+        "category": "event_handler"
+    },
+    {
+        "id": "CTX-004",
+        "name": "JavaScript URL context",
+        "url": "http://127.0.0.1:5000/context-test?js_url=test",
+        "parameter": "js_url",
+        "ground_truth": "VULNERABLE",
+        "expected_confirmation": false,
+        "category": "javascript_url"
+    },
+    {
+        "id": "CTX-005",
+        "name": "JavaScript context",
+        "url": "http://127.0.0.1:5000/context-test?javascript=test",
+        "parameter": "javascript",
+        "ground_truth": "VULNERABLE",
+        "expected_confirmation": false,
+        "category": "javascript"
+    },
+    {
+        "id": "CTX-006",
+        "name": "HTML comment context",
+        "url": "http://127.0.0.1:5000/context-test?comment=test",
+        "parameter": "comment",
+        "ground_truth": "SAFE",
+        "expected_confirmation": false,
+        "category": "html_comment"
+    }
+]

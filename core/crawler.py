@@ -1,6 +1,11 @@
 import requests
+
 from bs4 import BeautifulSoup
-from urllib.parse import urljoin
+
+from urllib.parse import (
+    urljoin,
+    urlparse
+)
 
 
 class WebCrawler:
@@ -11,6 +16,7 @@ class WebCrawler:
     ):
 
         self.session = session
+
 
     def get_forms(
         self,
@@ -42,6 +48,7 @@ class WebCrawler:
 
             return []
 
+
     def get_form_details(
         self,
         form
@@ -61,7 +68,7 @@ class WebCrawler:
         inputs = []
 
         for input_tag in form.find_all(
-            ["input","textarea","select"]
+            ["input", "textarea", "select"]
         ):
 
             input_type = input_tag.attrs.get(
@@ -72,6 +79,7 @@ class WebCrawler:
             input_name = input_tag.attrs.get(
                 "name"
             )
+
             input_value = input_tag.attrs.get(
                 "value",
                 ""
@@ -81,7 +89,7 @@ class WebCrawler:
                 {
                     "type": input_type,
                     "name": input_name,
-                    "value":input_value
+                    "value": input_value
                 }
             )
 
@@ -90,6 +98,7 @@ class WebCrawler:
         details["inputs"] = inputs
 
         return details
+
 
     def get_links(
         self,
@@ -117,21 +126,91 @@ class WebCrawler:
                     "href"
                 )
 
-                if href:
+                if not href:
+                    continue
 
-                    full_url = urljoin(
-                        url,
-                        href
-                    )
 
-                    links.append(
-                        full_url
+                # -------------------------------------------------
+                # Ignore non-navigation links
+                # -------------------------------------------------
+                #
+                # These are not HTTP resources that the crawler
+                # should request.
+                #
+                # Examples:
+                #
+                # javascript:...
+                # mailto:...
+                # tel:...
+                # data:...
+                # -------------------------------------------------
+
+                parsed_href = urlparse(
+                    href.strip()
+                )
+
+                scheme = (
+                    parsed_href.scheme.lower()
+                )
+
+
+                if scheme and scheme not in (
+                    "http",
+                    "https"
+                ):
+
+                    continue
+
+
+                # -------------------------------------------------
+                # Ignore fragment-only links
+                # -------------------------------------------------
+
+                if (
+                    href.strip().startswith(
+                        "#"
                     )
+                ):
+
+                    continue
+
+
+                # -------------------------------------------------
+                # Build absolute URL
+                # -------------------------------------------------
+
+                full_url = urljoin(
+                    url,
+                    href
+                )
+
+
+                # -------------------------------------------------
+                # Final safety check
+                # -------------------------------------------------
+
+                parsed_url = urlparse(
+                    full_url
+                )
+
+                if parsed_url.scheme.lower() not in (
+                    "http",
+                    "https"
+                ):
+
+                    continue
+
+
+                links.append(
+                    full_url
+                )
+
 
         except Exception as e:
 
             print(
                 f"[ERROR] {e}"
             )
+
 
         return links
