@@ -4,9 +4,9 @@
 
 ShadowXSS is a modular Python-based Cross-Site Scripting (XSS) vulnerability scanner designed to automate the discovery of reflected XSS vulnerabilities in web applications.
 
-The project was built from scratch to understand how real-world web vulnerability scanners work by implementing crawling, form extraction, payload injection, URL parameter testing, vulnerability detection, and report generation.
+The project was built from scratch to understand how real-world web vulnerability scanners work by implementing crawling, form extraction, payload injection, URL parameter testing, context detection, browser-based verification, vulnerability detection, deduplication, and report generation.
 
-ShadowXSS focuses on detecting reflected XSS vulnerabilities through automated testing of web forms and URL parameters using multiple XSS payloads.
+ShadowXSS focuses on detecting reflected XSS vulnerabilities through a multi-stage pipeline that distinguishes between simple reflection, potentially executable reflection, and browser-confirmed XSS execution.
 
 ---
 
@@ -17,12 +17,14 @@ Modern web applications frequently suffer from input validation and output encod
 The goal of this project was to:
 
 * Learn offensive web security concepts
-* Understand how automated scanners work
-* Gain practical experience with HTTP requests and web crawling
+* Understand how automated scanners work internally
+* Gain practical experience with HTTP requests, web crawling, HTML parsing, and browser automation
 * Build a cybersecurity-focused project relevant to SOC Analyst and Security Analyst roles
 * Develop a modular and extensible security tool
+* Understand that finding a payload in an HTTP response is not the same as confirming an XSS vulnerability
 
 ---
+
 HTML Vulnerability Report
 
 <img width="968" height="646" alt="image" src="https://github.com/user-attachments/assets/ee0e1fc3-0c77-4f1d-b04e-65e1a545cd51" />
@@ -39,10 +41,7 @@ HTML Vulnerability Report
 ### JSON report Generation
 <img width="555" height="840" alt="image" src="https://github.com/user-attachments/assets/75d9a86e-670d-43d8-b7c8-f6f10873d1c7" />
 
-
-
-
-
+---
 
 ## Features
 
@@ -78,7 +77,7 @@ Tests query string parameters such as:
 /profile?name=test
 ```
 
-Payloads are automatically inserted into parameters and tested.
+Payloads are automatically inserted into parameters and tested independently per parameter.
 
 ### Multi-Payload Engine
 
@@ -92,29 +91,132 @@ Currently supports 20+ XSS payloads including:
 * Autofocus Payloads
 * Object/Embed Payloads
 
-### Reflected XSS Detection
+### Reflection Detection
 
-Detects reflected payloads by analyzing server responses.
+Detects and distinguishes between:
 
-Current detection logic:
+* **Direct Reflection** — Payload appears in the response as-is
+* **Encoded Reflection** — Payload appears in HTML-encoded form (e.g., `&lt;script&gt;`)
 
-```python
-payload in response.text
-```
+The scanner does not treat encoded reflection as executable XSS automatically.
 
-### Reporting
+### Context Detection ⭐
+
+One of the most important stages in ShadowXSS.
+
+After detecting a reflection, the scanner identifies **where exactly** the input was reflected:
+
+* HTML Text context
+* HTML Attribute context
+* Event Handler context
+* JavaScript context
+* JavaScript URL context
+* HTML Comment context
+
+Context detection uses a controlled marker/probe injected into the parameter. The surrounding HTML structure is then analyzed to determine the enclosing tag, attribute, quote style, and context type.
+
+> **Important:** A `<script>` tag introduced by the payload itself is not treated as an existing JavaScript context. The scanner distinguishes between application-provided JavaScript blocks and attacker-introduced script tags.
+
+### Potential XSS Classification
+
+After context analysis, the scanner determines whether the reflection is:
+
+* In an execution-relevant context
+* Containing executable-looking patterns (script elements, event handlers, javascript: URLs)
+
+Only then is the finding classified as **Potential XSS** — not immediately as a confirmed vulnerability.
+
+### Browser-Based Verification ⭐
+
+ShadowXSS uses **Selenium with Chrome** to verify whether JavaScript actually executes in a real browser environment for each potential XSS finding.
+
+* If JavaScript execution is observed → Finding is marked as **Confirmed XSS**
+* If execution is not observed → Finding is marked as **Not Confirmed**
+
+This stage separates genuine vulnerabilities from false positives that pass HTTP-level analysis.
+
+### Deduplication
+
+When multiple payloads detect the same injection point, ShadowXSS consolidates them into a single finding rather than generating duplicate reports. Successful payload information is preserved within the deduplicated finding.
+
+### Enhanced Reporting
+
+Each finding now contains:
+
+* Vulnerable URL
+* Parameter
+* Payload Used
+* Request Method
+* Reflection Type (Direct / Encoded)
+* Context
+* Confidence
+* Severity
+* Potential XSS flag
+* Browser Verification status
+* Confirmed XSS flag
+* Successful Payloads
+* Verification Reason
+* Alert Text (if observed)
+* Evidence
 
 Generates:
 
 * JSON Reports
 * Professional HTML Reports
+* Terminal output recorded in `main.txt`
 
-Each finding contains:
+---
 
-* Vulnerable URL
-* Payload Used
-* Request Method
-* Vulnerability Type
+## Complete Scanning Workflow
+
+```text
+Target URL
+      │
+      ▼
+Web Crawling
+      │
+      ▼
+Link & Form Discovery
+      │
+      ▼
+Identify Injection Points
+(URL Parameters + Form Inputs)
+      │
+      ▼
+Context Probe
+      │
+      ▼
+Payload Selection & Injection
+      │
+      ▼
+HTTP Response Analysis
+      │
+      ▼
+Reflection Detection
+(Direct / Encoded / None)
+      │
+      ▼
+Context Detection
+(HTML / Attribute / JS / Comment / Event Handler)
+      │
+      ▼
+Potential XSS Classification
+      │
+      ▼
+Browser Verification (Selenium)
+      │
+      ▼
+Confirmed XSS / Not Confirmed
+      │
+      ▼
+Evidence Collection
+      │
+      ▼
+Deduplication
+      │
+      ▼
+Report Generation (JSON + HTML)
+```
 
 ---
 
@@ -131,12 +233,15 @@ ShadowXSS
 │   ├── detector.py
 │   ├── url_scanner.py
 │   ├── payloads.py
+│   ├── context_detector.py
+│   ├── browser_scanner.py
 │   ├── reporter.py
 │   └── html_reporter.py
 │
 ├── reports
 │   ├── report.json
-│   └── report.html
+│   ├── report.html
+│   └── main.txt
 │
 └── vulnerable_app.py
 ```
@@ -169,6 +274,8 @@ Responsible for:
 * GET requests
 * POST requests
 
+Uses a persistent HTTP session for all requests.
+
 Functions:
 
 * submit_form()
@@ -180,10 +287,37 @@ Functions:
 Responsible for:
 
 * Reflected payload detection
+* Distinguishing direct reflection from encoded reflection
+* Identifying potentially executable patterns
 
 Functions:
 
 * is_vulnerable()
+* _looks_executable()
+
+---
+
+### context_detector.py ⭐ New
+
+Responsible for:
+
+* Injecting a controlled marker/probe into parameters
+* Analyzing where the probe appears in the response
+* Identifying the surrounding HTML/JS context
+* Storing context metadata: context type, enclosing tag, attribute name, quote style, probe found status
+* Distinguishing application-provided JavaScript blocks from attacker-introduced script tags
+
+---
+
+### browser_scanner.py ⭐ New
+
+Responsible for:
+
+* Browser-based JavaScript execution verification
+* Selenium + Chrome integration
+* Loading potential XSS test cases in a real browser
+* Observing JavaScript execution behavior
+* Marking findings as Confirmed or Not Confirmed
 
 ---
 
@@ -192,6 +326,7 @@ Functions:
 Responsible for:
 
 * URL parameter testing
+* Testing each parameter independently with each payload
 
 Concepts used:
 
@@ -217,15 +352,24 @@ Current payload count:
 Responsible for:
 
 * Storing findings
+* Deduplication of findings per injection point
 * JSON export
 
-Output:
+Output example:
 
 ```json
 {
   "url": "...",
+  "parameter": "...",
   "payload": "...",
   "method": "...",
+  "reflection": "direct",
+  "context": "html_text",
+  "confidence": "high",
+  "severity": "high",
+  "potential_xss": true,
+  "browser_verified": true,
+  "confirmed_xss": true,
   "type": "Reflected XSS"
 }
 ```
@@ -238,35 +382,7 @@ Responsible for:
 
 * Dark-themed HTML reports
 * Human-readable vulnerability summaries
-
----
-
-## Detection Workflow
-
-```text
-Target URL
-      │
-      ▼
-Web Crawling
-      │
-      ▼
-Link Discovery
-      │
-      ▼
-Form Discovery
-      │
-      ▼
-Payload Injection
-      │
-      ▼
-Response Analysis
-      │
-      ▼
-XSS Detection
-      │
-      ▼
-Report Generation
-```
+* Evidence display per finding
 
 ---
 
@@ -284,17 +400,22 @@ http://127.0.0.1:5000
 Scanner:
 
 * Crawls website
-* Extracts forms
-* Tests URL parameters
+* Extracts forms and links
+* Identifies injection points
+* Probes each injection point for context
 * Injects 20+ payloads
-* Detects reflected XSS
-* Generates reports
+* Detects direct and encoded reflection
+* Analyzes reflection context
+* Classifies potential XSS findings
+* Verifies browser execution via Selenium
+* Deduplicates findings
+* Generates JSON and HTML reports
 
 ---
 
 ## Vulnerability Testing Lab
 
-A custom vulnerable Flask application was built for testing.
+A custom vulnerable Flask application was built for testing, regression testing, and evaluating true positives, true negatives, false positives, and false negatives.
 
 Included vulnerable pages:
 
@@ -333,6 +454,8 @@ Built for future textarea testing.
 * Python
 * Requests
 * BeautifulSoup
+* Selenium
+* Chrome WebDriver
 * Flask
 * HTML
 * CSS
@@ -348,6 +471,8 @@ Built for future textarea testing.
 * Cross-Site Scripting (XSS)
 * Vulnerability Assessment
 * Security Testing
+* Context-Aware Analysis
+* Evidence-Based Vulnerability Reporting
 
 ### Programming
 
@@ -355,12 +480,15 @@ Built for future textarea testing.
 * Modular Architecture
 * Object-Oriented Programming
 * HTTP Requests
+* Browser Automation
 
 ### Security Tool Development
 
 * Crawling Engines
 * Payload Management
-* Detection Logic
+* Context Detection Logic
+* Browser Verification
+* Deduplication
 * Reporting Systems
 
 ---
@@ -376,26 +504,29 @@ Built for future textarea testing.
 * POST Form Testing
 * URL Parameter Testing
 * 20+ Payload Testing
-* Reflected XSS Detection
+* Direct Reflection Detection
+* Encoded Reflection Detection
+* Context Detection (HTML / Attribute / JS / Event Handler / Comment)
+* Potential XSS Classification
+* Browser-Based Verification (Selenium + Chrome)
+* Confirmed XSS vs Not Confirmed distinction
+* Severity and Confidence Scoring
+* Deduplication of Findings
 * JSON Reporting
 * HTML Reporting
+* Terminal Output Logging (main.txt)
 * Modular Design
+* Regression Testing with Custom Vulnerable Flask App
 
 ---
 
 ## Current Limitations
 
-Current version detects:
-
-* Reflected Payloads
-
-Current version does not yet verify:
-
-* Actual JavaScript Execution
-* Browser Execution Context
-* DOM-Based XSS
-
-The scanner currently identifies reflected XSS candidates by checking whether payloads are reflected in responses.
+* Primarily focused on **reflected XSS** — stored and DOM-based XSS require additional workflows
+* Complex authentication flows may require session handling beyond current scope
+* Heavy JavaScript single-page applications may limit crawling effectiveness
+* WAFs or application-specific sanitization may affect detection results
+* DOM-based XSS requires dedicated client-side JavaScript analysis
 
 ---
 
@@ -460,9 +591,7 @@ python3 shadowxss.py \
 
 ### Phase 10
 
-* Playwright Integration
-* Selenium Integration
-* Real Browser-Based XSS Verification
+* Playwright Integration for advanced browser automation
 
 ---
 
@@ -479,11 +608,3 @@ Do not use this tool against systems without explicit permission.
 Harshit Kumar Srivastava
 
 Cybersecurity Enthusiast | Security Analyst Aspirant | Python Developer
-
-
-update this complete and dont chnage the image links and rest you can update it , 
-
-
-
-
-only add the latest things which are upadated in this project add that in readme and dont change any image link 
